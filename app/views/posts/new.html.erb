@@ -1,7 +1,20 @@
 <h1>新規投稿ページ</h1>
 <div>
-<%= form_tag("/posts/create") do %>
-  <textarea name="content"></textarea>
-  <input type="submit" value="投稿">
-<% end %>
+  <%= form_tag("/posts", {multipart:true}) do %>
+    <p>Title</p>
+    <p>
+      <%= text_field :posts, :title %>
+    </p>
+    <p>Content</p>
+    <p>
+      <%= text_area :posts, :content %>
+    </p>
+    <p>Image</p>
+    <p>
+      <%= file_field :posts, :image %>
+    </p>
+    <p>
+      <input type="submit" value="投稿">
+    </p>
+  <% end %>
 </div>

@@ -1,1 +1,21 @@
-<h1>投稿編集ページ</h1>
+<div>
+<p>編集</p>
+</div>
+<%= form_tag("/posts/#{@post.id}", {multipart:true}) do %>
+  <p>title</p>
+  <p>
+    <%= text_field :posts, :title %>
+  </p>
+  <p>image</p>
+  <p>
+    <img src= "<%= "/post_images/#{@post.image_name}" %>">
+    <%= file_field :posts, :image %>
+  </p>
+  <p>content</p>
+  <p>
+    <%= text_field :posts, :content %>
+  </p>
+  <p>
+    <input type="submit" value="編集">
+  </p>
+<% end %>
