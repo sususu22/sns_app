@@ -29,11 +29,16 @@
         <%= "ログイン" %>
       </li>
       <li>
-        <%= "ログアウト" %>
+        <% if user_signed_in? %>
+          <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+        <% end %>
       </li>
 
 
     </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>
